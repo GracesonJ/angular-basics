@@ -1,0 +1,28 @@
+<h2 [style.color]="titleColor">{{title}}</h2>
+<ol>
+    <li>Data Binding</li>
+    <ul>
+        <li>one Way Binding (ts to html)
+            <ul>
+                <li>Interpolation</li>
+                <li>Property Binding / Attribute Binding</li>
+                <li>style binding</li>
+            </ul>
+        </li>
+        <li>one Way Binding (html to ts)
+            <ul>
+                <li>Event Binding : (event-name)="function-call()" </li>
+                <li></li>
+                <li></li>
+            </ul>
+        </li>
+    </ul>
+   
+</ol>
+<img [src]="imgUrl" alt="" width="200" class=""><br>
+<button (click)="showAlert('Alert the content using event Binding')" class="btn btn-primary mt-5">Show Alert</button>
+
+<div class="container my-5">
+    <h1>{{count}}</h1>
+    <button (click)="increment()" class="btn btn-success">Increment</button>
+</div>

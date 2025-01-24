@@ -1,4 +1,4 @@
-<h2 [style.color]="titleColor">{{title}}</h2>
+<h2 [style.color]="titleColor">{{title  | append : '- Title updated' | uppercase }}</h2>
 <ol>
     <li>Data Binding</li>
     <ul>
@@ -17,7 +17,7 @@
             </ul>
         </li>
     </ul>
-   
+
 </ol>
 <img [src]="imgUrl" alt="" width="200" class=""><br>
 <button (click)="showAlert('Alert the content using event Binding')" class="btn btn-primary mt-5">Show Alert</button>
@@ -28,20 +28,50 @@
     <!-- -------------------------- -->
     <input #user (keyup)="getUsername($event)" type="text" class="form-control w-50 my-3" placeholder="Enter Your Name">
     <h3 *ngIf="username">User Input is : {{username}}</h3>
-<!-- ---------------------------------------------------- -->
+    <!-- ---------------------------------------------------- -->
     <input #desg type="text" class="form-control w-50 my-3" placeholder="Enter Your Designation">
     <button (click)="getUser(desg)" class="btn btn-success mt-3">Get Designation</button>
 
-    <p [ngClass]="styleClass">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nostrum explicabo quos asperiores debitis eveniet saepe! Dolorum iure, illo, ullam modi corrupti quos at fuga explicabo dignissimos deserunt repellendus ad.</p>
-<!-- ----------------- -->
+    <p [ngClass]="styleClass">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nostrum explicabo
+        quos asperiores debitis eveniet saepe! Dolorum iure, illo, ullam modi corrupti quos at fuga explicabo
+        dignissimos deserunt repellendus ad.</p>
+    <!-- ----------------- -->
     <h2>User List</h2>
     <ol>
         <li *ngFor="let name of userList">{{name}}</li>
     </ol>
-<!-- --------------------------- -->
+    <!-- -------------------------------------------------------------------- -->
 
     <input [(ngModel)]="UserAddress" type="text" class="form-control w-50 my-3" placeholder="Enter Your Address">
     <p>Address : {{UserAddress}}</p>
 
+</div>
+<!-- ----------------- ------------------- ---------------------------  -->
 
-</div>  
+<div class="m-3 p-3 border">
+    <div class="m-3 p-3 border">
+        <h2>user Status:
+            @if (userStatus) {
+            <span class="text-success">Active</span>
+            }@else {
+            <span class="text-dander">Inactive</span>
+            }
+        </h2>
+    </div>
+    <div class="m-3 p-3 border">
+        <h2>All User List - using control flow statements</h2>
+        <ol>
+            @for (name of userList; track $index) {
+            <li>{{name}}</li>
+            }
+        </ol>
+    </div>
+
+    <div class="m-3 p-3 border">
+        <!-- <h1>Today : {{today}} </h1> -->
+        <!-- <h1>Today : {{today | date}} </h1> -->
+        <h1>Today : {{today | date : "mediumDate"}} </h1>
+
+    </div>
+
+</div>

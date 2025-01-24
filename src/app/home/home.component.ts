@@ -1,11 +1,12 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgClass, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AppendPipe } from '../pipes/append.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgClass, NgIf, NgFor, FormsModule],
+  imports: [NgClass, NgIf, NgFor, FormsModule, DatePipe, AppendPipe, UpperCasePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -18,6 +19,9 @@ export class HomeComponent {
   styleClass:string = "pStyle textColor"
   userList:string[] = ["Alan", "Alex", "John", "Mark", "Jerin","Johny"]
   UserAddress:string = "XYZ KL 652696"
+  // -------------------------------------
+  userStatus:boolean = false
+  today:Date = new Date()
 
   increment(){
     this.count++

@@ -73,5 +73,32 @@
         <h1>Today : {{today | date : "mediumDate"}} </h1>
 
     </div>
+<!-- ------------------- -->
+    <div class="m-3 p-3 border">
+        <button (click)="showService()" class="btn btn-success">Show Service Data</button>
+
+    </div>
+
+    <div class="m-3 p-3 border">
+        <h1>All Post</h1>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>title</th>
+                <th>Body</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+           @for (post of allPost; track $index; let i=$index) {
+           <tr>
+                <td>{{i+1}}</td>
+                <td>{{post.title}} </td>
+                <td>{{post.body}} </td>
+           </tr>
+           }
+        </tbody>
+        
+    </div>
 
 </div>

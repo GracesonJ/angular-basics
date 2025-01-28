@@ -2,6 +2,7 @@ import { DatePipe, NgClass, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppendPipe } from '../pipes/append.pipe';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,24 @@ export class HomeComponent {
   // -------------------------------------
   userStatus:boolean = false
   today:Date = new Date()
+
+  // --------------------------------
+
+  allPost:any = []
+
+  constructor(private api:ApiService){}
+
+  ngOnInit(){
+    this.showPost( )
+  }
+
+  showPost(){
+    this.api.getAllPost().subscribe((res:any)=>{
+      console.log(res);
+      this.allPost = res
+      
+    })
+  }
 
   increment(){
     this.count++
@@ -44,4 +63,12 @@ export class HomeComponent {
       alert(`Fill the Form`)
     }
   }
+
+  showService(){
+    alert(this.api.servicedata)
+  }
+
+
+
+
 }

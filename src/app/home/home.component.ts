@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppendPipe } from '../pipes/append.pipe';
 import { ApiService } from '../services/api.service';
+import { Post } from '../interfaces/post';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,7 @@ export class HomeComponent {
 
   // --------------------------------
 
-  allPost:any = []
+  allPost:Post[] = []
 
   constructor(private api:ApiService){}
 
@@ -35,7 +36,7 @@ export class HomeComponent {
   }
 
   showPost(){
-    this.api.getAllPost().subscribe((res:any)=>{
+    this.api.getAllPost().subscribe((res:Post[])=>{
       console.log(res);
       this.allPost = res
       

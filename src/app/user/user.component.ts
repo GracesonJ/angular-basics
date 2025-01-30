@@ -9,7 +9,8 @@ import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 })
 export class UserComponent {
   @Input() username:string = ""
-
+  
+// event
   @Output() onAlert = new EventEmitter()
 
   executeEvent(){

@@ -1,5 +1,41 @@
-<p>about works!</p>
+<!-- <p>about works!</p> -->
 <!-- child component - user
 parent component - about -->
-<app-user (onAlert)="showAlert($event)" [username]="data"></app-user>
- 
+<app-user (onAlert)="showAlert($event)" [username]="data"></app-user><br>
+<!-- {{email}}
+<br>{{password}} -->
+<div class="my-5 container border p-5 rounded border-warning">
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+
+            <input #emailInput="ngModel" [(ngModel)]="email" name="email" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" required email>
+
+                @if (emailInput.invalid && emailInput.touched) {
+                    <div class="text-danger fw-bolder">
+                        Invalid email
+                    </div>
+                }
+            
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+
+            <input #pswdInput="ngModel" [(ngModel)]="password" name="password" type="password" class="form-control"
+                id="exampleInputPassword1" required pattern="[a-zA-Z0-9]*">
+
+                @if (pswdInput.invalid && pswdInput.touched) {
+                    <div class="text-danger fw-bolder">
+                        Invalid Password 
+                    </div>
+                }
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button  [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
